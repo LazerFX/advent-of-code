@@ -38,4 +38,30 @@ public class Test2015_Day1
         
         test.TestPart1(why);
     }
+
+    [Theory]
+    [InlineData(")", "1", "Enters basement in first character")]
+    [InlineData("()())", "5", "Enters basement on fifth character")]
+    public void Part2_ShouldReturnRightAnswer(string input, string expectedOutput, string why) {
+        var test = new TestDay();
+
+        test.WithDay(new Day1())
+            .WithInput(input)
+            .WithExpectedOutput(expectedOutput);
+
+        test.TestPart2(why);
+    }
+
+    [Theory]
+    [InlineData("24", "the days input should be correct")]
+    public void Part2_ForTheDay_ShouldBeRight(string expectedOutput, string why)
+    {
+        var test = new TestDay();
+        
+        test.WithDay(new Day1())
+            .WithInput(_daysInput)
+            .WithExpectedOutput(expectedOutput);
+        
+        test.TestPart2(why);
+    }
 }
