@@ -37,7 +37,7 @@ public class TestDay
     public void TestPart2(string why) {
         ValidateDay();
 
-        _dayToTest.GetPart1(_input).Should().Be(_expectedOutput, why);
+        _dayToTest.GetPart2(_input).Should().Be(_expectedOutput, why);
     }
 
     public TestDay() {}

@@ -4,11 +4,16 @@ public class Day1 : IDay
 {
     private int floor = 0;
 
+    private int step = 0;
+
     private void Start() {
         floor = 0;
+        step = 0;
     }
 
     private int Step(char direction) {
+        step += 1;
+        
         switch (direction) {
             case '(':
                 floor += 1;
@@ -37,6 +42,15 @@ public class Day1 : IDay
 
     public string GetPart2(string input)
     {
-        throw new NotImplementedException();
+        Start();
+
+        foreach (var stepDirection in input) {
+            var floor = Step(stepDirection);
+            if (floor < 0) {
+                return step.ToString();
+            }
+        }
+
+        return "-1";
     }
 }

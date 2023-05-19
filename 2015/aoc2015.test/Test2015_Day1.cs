@@ -53,7 +53,7 @@ public class Test2015_Day1
     }
 
     [Theory]
-    [InlineData("24", "the days input should be correct")]
+    [InlineData("1783", "the days input should be correct")]
     public void Part2_ForTheDay_ShouldBeRight(string expectedOutput, string why)
     {
         var test = new TestDay();
