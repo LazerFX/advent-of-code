@@ -21,4 +21,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\template\aoc.template.csproj" />
+    <ProjectReference Include="..\aoc2015\aoc2015.csproj" />
+  </ItemGroup>
+
 </Project>
