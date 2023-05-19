@@ -8,7 +8,7 @@ public class Test2015_Day1
     public void Part1_ShouldReturnRightAnswer(string input, string expectedOutput, string why)
     {
         var test = new TestDay();
-
+        
         test.WithDay(new Day1())
             .WithInput(input)
             .WithExpectedOutput(expectedOutput);
