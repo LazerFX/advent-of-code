@@ -28,18 +28,16 @@ public class TestDay
         }
     }
 
-    [Fact]
-    public void TestPart1() {
+    public void TestPart1(string why) {
         ValidateDay();
 
-        _dayToTest.GetPart1(_input).Should().Equals(_expectedOutput);
+        _dayToTest.GetPart1(_input).Should().Be(_expectedOutput, why);
     }
 
-    [Fact]
-    public void TestPart2() {
+    public void TestPart2(string why) {
         ValidateDay();
 
-        _dayToTest.GetPart1(_input).Should().Equals(_expectedOutput);
+        _dayToTest.GetPart1(_input).Should().Be(_expectedOutput, why);
     }
 
     public TestDay() {}
