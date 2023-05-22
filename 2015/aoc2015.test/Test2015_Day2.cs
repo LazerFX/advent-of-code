@@ -13,7 +13,7 @@ public class Test2015_Day2
     [MemberData(nameof(Part1_TestData))]
     public void Part1_ShouldReturnRightAnswer(DayTestData testData)
     {
-        new TestDay(new Day1()).TestPart1(testData);
+        new TestDay(new Day2()).TestPart1(testData);
     }
 
     public static IEnumerable<object[]> Part1_DayData()
@@ -25,7 +25,7 @@ public class Test2015_Day2
     [MemberData(nameof(Part1_DayData))]
     public void Part1_ForTheDay_ShouldBeRight(DayTestData testData)
     {
-        new TestDay(new Day1()).TestPart1(testData);
+        new TestDay(new Day2()).TestPart1(testData);
     }
 
     public static IEnumerable<object[]> Part2_TestData()
@@ -38,7 +38,7 @@ public class Test2015_Day2
     [MemberData(nameof(Part2_TestData))]
     public void Part2_ShouldReturnRightAnswer(DayTestData testData)
     {
-        new TestDay(new Day1()).TestPart2(testData);
+        new TestDay(new Day2()).TestPart2(testData);
     }
 
     public static IEnumerable<object[]> Part2_DayData()
@@ -50,6 +50,6 @@ public class Test2015_Day2
     [MemberData(nameof(Part2_DayData))]
     public void Part2_ForTheDay_ShouldBeRight(DayTestData testData)
     {
-        new TestDay(new Day1()).TestPart2(testData);
+        new TestDay(new Day2()).TestPart2(testData);
     }
 }
