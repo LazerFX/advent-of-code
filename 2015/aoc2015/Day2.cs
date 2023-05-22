@@ -13,6 +13,6 @@ public class Day2 : IDay
     }
 
     public IEnumerable<string> Split(string input) {
-        throw new NotImplementedException();
+        return input.Split(Environment.NewLine);
     }
 }
