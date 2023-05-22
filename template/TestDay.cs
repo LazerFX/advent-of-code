@@ -1,3 +1,5 @@
+using Xunit.Abstractions;
+
 namespace aoc.template;
 
 public class TestDay
@@ -17,4 +19,23 @@ public class TestDay
     public TestDay(IDay day) { _dayToTest = day; }
 }
 
-public record DayTestData(string input, string expectedOutput, string why);
+public class DayTestData : IXunitSerializable {
+    public string input {get;} = "";
+    public string expectedOutput {get;} = "";
+    public string why {get;} = "";
+    public DayTestData(string input, string expectedOutput, string why) {
+        this.input = input;
+        this.expectedOutput = expectedOutput;
+        this.why = why;
+    }
+    public DayTestData() {}
+
+    public void Deserialize(IXunitSerializationInfo info) { }
+
+    public void Serialize(IXunitSerializationInfo info)
+    {
+        info.AddValue(nameof(input), input);
+        info.AddValue(nameof(expectedOutput), expectedOutput);
+        info.AddValue(nameof(why), why);
+    }
+}
