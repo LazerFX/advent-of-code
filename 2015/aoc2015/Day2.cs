@@ -11,4 +11,8 @@ public class Day2 : IDay
     {
         throw new NotImplementedException();
     }
+
+    public IEnumerable<string> Split(string input) {
+        throw new NotImplementedException();
+    }
 }

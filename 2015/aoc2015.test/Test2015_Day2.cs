@@ -1003,9 +1003,9 @@ public class Test2015_Day2
 20x29x30
 23x11x5";
 
-    public Test2015_Day2() {
-        testDay = new TestDay(new Day2());
-    }
+    private Day2 day { get { return new Day2(); } }
+
+    private TestDay testDay { get { return new TestDay(day); } }
 
     public static IEnumerable<object[]> Part1_TestData()
     {
@@ -1030,9 +1030,17 @@ public class Test2015_Day2
         yield return new object[] { new DayTestData(_daysInput, "", "the days input should be correct for Part 2") };
     }
 
-    #region Template structure
-    private TestDay testDay;
+    [Theory]
+    [InlineData(@"2x3x4
+1x1x10", "2x3x4", "1x1x10")]
+    public void Split_Returns_CorrectlySeparatedData(string input, params string[] expectedOutput)
+    {
+        var result = day.Split(input);
 
+        result.Should().BeEquivalentTo(expectedOutput);
+    }
+
+    #region Template structure
     [Theory]
     [MemberData(nameof(Part1_TestData))]
     public void Part1_ShouldReturnRightAnswer(DayTestData testData)
