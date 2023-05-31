@@ -1,3 +1,9 @@
 {
-    "git.postCommitCommand": "sync"
+    "git.postCommitCommand": "sync",
+    "dotnet-test-explorer.testArguments": "",
+    "dotnet-test-explorer.testProjectPath": "",
+    "dotnet-test-explorer.autoWatch": true,
+    "dotnet-test-explorer.runInParallel": true,
+    "dotnet-test-explorer.showCodeLens": true,
+    "dotnet-test-explorer.autoExpandTree": true
 }
