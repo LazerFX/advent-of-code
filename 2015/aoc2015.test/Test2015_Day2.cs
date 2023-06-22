@@ -1040,6 +1040,18 @@ public class Test2015_Day2
         result.Should().BeEquivalentTo(expectedOutput);
     }
 
+    public static IEnumerable<object[]> GetLWHData() {
+        yield return new object[] { "2x3x4", (2, 3, 4), "It should parse LxWxH correctly" };
+    }
+
+    [Theory]
+    [MemberData(nameof(GetLWHData))]
+    public void GetLWH_Should_SplitCorrectlyIntoParts(string input, (int length, int width, int height) expectedOutput, string why) {
+        var result = day.GetLWH(input);
+        
+        result.Should().Be(expectedOutput, why);
+    }
+
     #region Template structure
     [Theory]
     [MemberData(nameof(Part1_TestData))]
