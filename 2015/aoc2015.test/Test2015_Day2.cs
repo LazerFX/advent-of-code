@@ -1003,31 +1003,26 @@ public class Test2015_Day2
 20x29x30
 23x11x5";
 
-    private Day2 day { get { return new Day2(); } }
-
-    private TestDay testDay { get { return new TestDay(day); } }
-
-    public static IEnumerable<object[]> Part1_TestData()
+    public static IEnumerable<DayTestData> Part1_TestData = new []
     {
-        yield return new object[] { new DayTestData("2x3x4", "58", "2*6 + 2*12 + 2*8 == 52 plus 6 slack") };
-        yield return new object[] { new DayTestData("1x1x10", "43", "2*1 + 2*10 + 2*10 == 52 plus 1 slack") };
-        yield return new object[] { new DayTestData(@"2x3x4
-1x1x10", "101", "Two in sequence should be calculated correctly (58 + 43 == 101)") };
-    }
+        new DayTestData("2x3x4", "58", "2*6 + 2*12 + 2*8 == 52 plus 6 slack"),
+        new DayTestData("1x1x10", "43", "2*1 + 2*10 + 2*10 == 52 plus 1 slack"),
+        new DayTestData(@"2x3x4
+1x1x10", "101", "Two in sequence should be calculated correctly (58 + 43 == 101)")
+    };
 
-    public static IEnumerable<object[]> Part1_DayData()
-    {
-        yield return new object[] { new DayTestData(_daysInput, "", "the days input should be correct for Part 1") };
-    }
+    public static string Part1_Answer = "";
 
-    public static IEnumerable<object[]> Part2_TestData()
+    public static IEnumerable<DayTestData> Part2_TestData = new []
     {
-        yield return new object[] { new DayTestData("", "", "") };
-    }
+        new DayTestData("", "", "")
+    };
 
-    public static IEnumerable<object[]> Part2_DayData()
-    {
-        yield return new object[] { new DayTestData(_daysInput, "", "the days input should be correct for Part 2") };
+    public static string Part2_Answer = "";
+
+    [Fact]
+    public void Test() {
+        var testDay = new TestDay<Day2>(_daysInput, Part1_TestData, Part2_TestData, Part1_Answer, Part2_Answer);
     }
 
     [Theory]
@@ -1035,7 +1030,7 @@ public class Test2015_Day2
 1x1x10", "2x3x4", "1x1x10")]
     public void Split_Returns_CorrectlySeparatedData(string input, params string[] expectedOutput)
     {
-        var result = day.Split(input);
+        var result = new Day2().Split(input);
 
         result.Should().BeEquivalentTo(expectedOutput);
     }
@@ -1047,38 +1042,9 @@ public class Test2015_Day2
     [Theory]
     [MemberData(nameof(GetLWHData))]
     public void GetLWH_Should_SplitCorrectlyIntoParts(string input, (int length, int width, int height) expectedOutput, string why) {
-        var result = day.GetLWH(input);
+        var result = new Day2().GetLWH(input);
         
         result.Should().Be(expectedOutput, why);
     }
 
-    #region Template structure
-    [Theory]
-    [MemberData(nameof(Part1_TestData))]
-    public void Part1_ShouldReturnRightAnswer(DayTestData testData)
-    {
-        testDay.TestPart1(testData);
-    }
-
-    [Theory]
-    [MemberData(nameof(Part1_DayData))]
-    public void Part1_ForTheDay_ShouldBeRight(DayTestData testData)
-    {
-        testDay.TestPart1(testData);
-    }
-
-    [Theory]
-    [MemberData(nameof(Part2_DayData))]
-    public void Part2_ForTheDay_ShouldBeRight(DayTestData testData)
-    {
-        testDay.TestPart2(testData);
-    }
-
-    [Theory]
-    [MemberData(nameof(Part2_TestData))]
-    public void Part2_ShouldReturnRightAnswer(DayTestData testData)
-    {
-        testDay.TestPart2(testData);
-    }
-    #endregion
 }
