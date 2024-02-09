@@ -1022,7 +1022,7 @@ public class Test2015_Day2
 
     [Fact]
     public void Test() {
-        var testDay = new TestDay<Day2>(_daysInput, Part1_TestData, Part2_TestData, Part1_Answer, Part2_Answer);
+        //var testDay = new TestDay<Day2>(_daysInput, Part1_TestData, Part2_TestData, Part1_Answer, Part2_Answer);
     }
 
     [Theory]

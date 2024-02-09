@@ -5,24 +5,33 @@ namespace aoc.template;
 public class TestDay<T>
     where T : IDay, new()
 {
-    private string _dayInput { get; }
-    private IEnumerable<DayTestData> Part1_TestData { get; }
-    private IEnumerable<DayTestData> Part2_TestData { get; }
-    private string Part1_Answer { get; }
-    private string Part2_Answer { get; }
+    private string? _dayInput { get; set; }
+    private IEnumerable<DayTestData>? Part1_TestData { get; set; }
+    private IEnumerable<DayTestData>? Part2_TestData { get; set; }
+    private string? Part1_Answer { get; set; }
+    private string? Part2_Answer { get; set; }
 
-    public TestDay(string dayInput, IEnumerable<DayTestData> part1_TestData, IEnumerable<DayTestData> part2_TestData, string part1_Answer, string part2_Answer)
+    public TestDay()
     {
-        _dayInput = dayInput;
-        Part1_Answer = part1_Answer;
-        Part2_Answer = part2_Answer;
+    }
+
+    public TestDay<T> WithPart1TestData(IEnumerable<DayTestData> part1_TestData)
+    {
         Part1_TestData = part1_TestData;
-        Part2_TestData = part2_TestData;
+        return this;
     }
 
     [Fact]
     public void TestPart1()
     {
+        Part1_TestData.Should().NotBeNullOrEmpty("Part1_TestData should be assigned before running TestPart1");
+        Parallel.ForEach(Part1_TestData ?? [], testData => {
+            var day = new T();
+            day.GetPart1(testData.input)
+                .Should()
+                .Be(testData.expectedOutput, testData.why);
+        });
+
         foreach (var testData in Part1_TestData)
         {
             var day = new T();
@@ -51,6 +60,14 @@ public class TestDay<T>
     {
         var day = new T();
         day.GetPart2(_dayInput).Should().Be(Part2_Answer, "The day result for Part 2 should be output");
+    }
+
+    public void Test()
+    {
+        TestPart1();
+        TestAnswer_Part1();
+        TestPart2();
+        TestAnswer_Part2();
     }
 }
 
