@@ -30,6 +30,10 @@ So I've spent some time going through the data and source of XUnit, and it looks
 I suspect I'll want to start by building a custom runner, get it under test, and start throwing tests at it to see how it hangs.  I'll
 also need to check the test display and make sure they're all displaying properly.
 
-Further research suggests that I need a custom discoverer - research from 
+Further research suggests that I need a custom discoverer - research from
 [Nate McMaster's projects](https://github.com/natemcmaster/xunit-extensions/blob/main/src/McMaster.Extensions.Xunit/Internal/SkippableFactDiscoverer.cs)
 suggest this.  Will try with just a discoverer at first, and see how that goes.
+
+And I've found the glue that ties the attribute to the discoverer - again, from Nate McMaster's projects, the
+[XunitTestCaseDiscoverer](https://github.com/natemcmaster/xunit-extensions/blob/main/src/McMaster.Extensions.Xunit/SkippableTheoryAttribute.cs)
+attribute.
