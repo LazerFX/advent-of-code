@@ -20,3 +20,12 @@ to plug an array of text objects into a full test case solution.  So:
 1. This should automate the generation of the text output
 1. This should be clean and obvious in use, and performant
 1. This should be extensible and usable for multiple years worth of output
+
+### Investigation
+
+So I've spent some time going through the data and source of XUnit, and it looks like I need a custom
+[Test Case Runner](https://github.com/xunit/xunit/blob/main/src/xunit.v2.tests/Sdk/Frameworks/Runners/XunitTheoryTestCaseRunnerTests.cs)
+, one that will find and generate the tests from the values, and will also delegate the data to the existing runner...
+
+I suspect I'll want to start by building a custom runner, get it under test, and start throwing tests at it to see how it hangs.  I'll
+also need to check the test display and make sure they're all displaying properly.
