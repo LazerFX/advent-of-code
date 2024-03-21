@@ -37,3 +37,8 @@ suggest this.  Will try with just a discoverer at first, and see how that goes.
 And I've found the glue that ties the attribute to the discoverer - again, from Nate McMaster's projects, the
 [XunitTestCaseDiscoverer](https://github.com/natemcmaster/xunit-extensions/blob/main/src/McMaster.Extensions.Xunit/SkippableTheoryAttribute.cs)
 attribute.
+
+After struggling for quite a bit, it appears that you need to include `xunit.extensibility.core` and `xunit.extensibility.execution` - perhaps, anyway.
+
+And it turns out the whole problem was a malformed `namespace` which meant it couldn't find the values.  Oh well, time to continue.  Checking in at this point
+as a diagnostic debug save.

@@ -21,7 +21,7 @@ public class TestDay<T>
         return this;
     }
 
-    [Fact]
+    //[Fact]
     public void TestPart1()
     {
         Part1_TestData.Should().NotBeNullOrEmpty("Part1_TestData should be assigned before running TestPart1");
@@ -39,7 +39,7 @@ public class TestDay<T>
         }
     }
 
-    [Fact]
+    //[Fact]
     public void TestPart2()
     {
         foreach (var testData in Part2_TestData) {
@@ -48,14 +48,14 @@ public class TestDay<T>
         }
     }
 
-    [Fact]
+    //[Fact]
     public void TestAnswer_Part1()
     {
         var day = new T();
         day.GetPart1(_dayInput).Should().Be(Part1_Answer, "The day result for Part 1 should be output");
     }
 
-    [Fact]
+    //[Fact]
     public void TestAnswer_Part2()
     {
         var day = new T();
